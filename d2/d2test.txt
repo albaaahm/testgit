@@ -1,0 +1,46 @@
+Créer un diagramme de classe et un diagramme de cas d'utilisation permettant la réalisation d'un jeu d'échec graphique :
+Un jeu d'échec se joue à 2 joueurs (un blanc et un noir)
+Le blanc joue systématiquement en premier
+Chaque joueur possède 16 pièces :
+	- 8 pions
+	- 2 tour
+	- 2 cavalier
+	- 2 fou
+	- une reine
+	- un roi
+Les joueurs jouent sur un plateau de jeu commun composé de 8 cases par 8 cases
+Chaque case est colorié soit en blanc soit en noir la première case gauche de la première ligne lorsqu'un joueur regarde le plateau est 
+blanche et l'on interverti les couleurs une à une sur la ligne puis on effectue la même opération sur les colonnes.
+Un indicateur horizontal numérotera dans le sens du joueur blanc les cases de "a" à "h"
+Un indicateur vertical numérotera dans le sens du joueur blanc les cases de 1 à 8
+Chaque pion possède un emplacement de départ
+	- les pions sont sur la deuxième ligne en partant du joueur sur toute la ligne
+	- les pièces de tête sont placer sur la première ligne en face du joueur dans un ordre de gauche à droite prédéfinit :
+		- tour, cavalier, fou, reine, roi, fou, cavalier, tour 
+		ou
+		- tour, cavalier, fou, roi, reine, fou, cavalier, tour 
+		- La reine doit obligatoirement être sur sa couleur de pièce
+Chaque pion possède une méthode de déplacement qui lui est propre à chaque tour
+	- un pion avance que d'une case vers l'avant
+	- une tour avance sur une ligne horizontale ou verticale
+	- un cavalier avance :
+		- de 3 cases dans une direction horizontale ou verticale
+		- puis de 2 cases dans une direction dépendant du choix du premier déplacement
+		- le cavalier peut passer par dessus tout autre pièce
+	- un fou avance en diagonal dans les 4 directions possible
+	- la reine se déplace comme un fou et une tour
+	- le roi se déplace d'une case dans les 8 directions possible
+Une pièce arrête son déplacement si elle rencontre une autre pièce
+Si la pièce rencontré est une pièce adverse elle peut la manger
+Les pièces ne peuvent par défault pas passer à travers les pièces alliées ou ennemis
+Dans se cas la pièce est stocker à l'extérieur du plateau de jeu dans les pièces mangé par le joueur
+Si un pion arrive au bout du plateau adverse alors le joueur peut récupérer une pièce qu'il s'est fait mangé et la place ou il veut sur la ligne de départ des pièces de tête de l'adversaire
+Un joueur perd la partie si le roi ne peut pas, au tour de jeu du joueur, se déplacer sans être mangé
+Il y a égalité si aucun des joueurs n'est en capacité de bloquer le roi adverse
+Il y a égalité si les deux joueurs conviennent d'une égalité
+Un joueur perd si il abandonne la partie
+Le roi peut effectuer 2 mouvements spéciaux appelé ROQUE :
+	- Si le roi ne s'est pas encore déplacé et que le tour de droite ou de gauche ne s'est pas encore déplacé et aucune pièce ne se trouve sur la ligne entre le roi et la tour alors le roi peut :
+		- Se déplacer de deux cases vers la tour et la tour se placera directement de l'autre côté du roi
+
+Créer un diagramme de séquence représentant le déplacement d'une pièce sur l'échiquier.
